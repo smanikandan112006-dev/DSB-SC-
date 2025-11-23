@@ -1,20 +1,20 @@
 # DSBSC
 
 
-EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
+## EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
 
-AIM:
+## AIM:
 
 To write a program to perform DSBSC modulation and demodulation using SCI LAB and study its spectral characteristics
 
-EQUIPMENTS REQUIRED
+## EQUIPMENTS REQUIRED
 
 •	Computer with i3 Processor
 •	SCI LAB
 
 Note: Keep all the switch faults in off position
 
-Algorithm:
+## Algorithm:
 
 1.	Define Parameters:
 •	Fs: Sampling frequency.
@@ -32,7 +32,7 @@ Algorithm:
 •	Low-pass Filtering: Apply a Butterworth low-pass filter to remove the high- frequency components and recover the original message signal.
 5.	Visualization:
 Plot the message signal, carrier signal, DSBSC modulated signal, and the recovered signal after demodulation.
-PROCEDURE
+## PROCEDURE
 
 •	Refer Algorithms and write code for the experiment.
 •	Open SCILAB in System
@@ -43,19 +43,46 @@ PROCEDURE
 •	If any Error, correct it in code and execute again
 •	Verify the generated waveform using Tabulation and Model Waveform
 
-Model Waveform
+## Model Waveform
 
 <img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
 
-Program
+## Program
+```
+ac=19;
+Am=9.5;
+fc=5200;
+fm=520;
+fs=52000;
+t=0:1/fs:3/fm;
+wc=2*3.14*fc;
+wm=2*3.14*fm;
+e1=(Am*sin(wm*t));
+subplot(3,1,1);
+plot(t,e1);
+title("Modulating signal");
+xgrid
+e2=(ac*sin(wc*t));
+subplot(3,1,2);
+plot(t,e2);
+title("Carrier signal");
+xgrid
+e3=(Am/2.*cos(wc*t-wm*t))-(Am/2.*cos(wc*t+wm*t));
+subplot(3,1,3);
+plot(t,e3);
+title("Double side band suppressed carrier");
+xgrid
+```
 
-Output Graph
+## Output Graph
+<img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/45d1bcd1-ab0f-49c2-b6d0-46deb7d81830" />
+
+## Tablular Column
+![WhatsApp Image 2025-11-10 at 20 23 41_dc9f2a9c](https://github.com/user-attachments/assets/9bbd3178-e2b1-44df-9fc3-a94626ffecc9)
+![WhatsApp Image 2025-11-10 at 20 23 41_664698af](https://github.com/user-attachments/assets/da84c738-1491-40eb-8503-92e913cce6bd)
 
 
-Tablular Column
-
-
-Result
+## Result
 
 Thus the DSB-SC-AM Modulation and Demodulation is generated.
 
